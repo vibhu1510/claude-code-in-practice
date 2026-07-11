@@ -26,13 +26,5 @@ The failure modes I've watched repeatedly while rolling agentic coding out to en
 4. **Silent scope creep** — "while I was in there" changes nobody asked for. Antidote: file-list-first planning and diff review discipline.
 5. **"It compiles so it's done"** — running is not the same as correct. Antidote: the human owns the definition of done.
 
-## Roadmap (building in the open)
-
-- [x] `conventions/` — my annotated CLAUDE.md and Cursor rules, with the failure that taught me each line
-- [ ] `workflows/multi-file-refactor.md` — a real session on TechCoach AI, start to finish: prompts, the wrong first plan, the correction, the final diff
-- [ ] `workflows/unfamiliar-codebase.md` — using the agent to map a codebase I've never seen
-- [x] `teaching/onboarding-exercise.md` — the hands-on exercise I use to ramp engineers on Claude Code
-
----
 
 Questions or want to compare setups: [LinkedIn](https://www.linkedin.com/in/vibhu-gupta-9a35b45a/) · vibhu1510@outlook.com
