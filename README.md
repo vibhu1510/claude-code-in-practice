@@ -28,10 +28,10 @@ The failure modes I've watched repeatedly while rolling agentic coding out to en
 
 ## Roadmap (building in the open)
 
-- [ ] `conventions/` — my annotated CLAUDE.md and Cursor rules, with the failure that taught me each line
+- [x] `conventions/` — my annotated CLAUDE.md and Cursor rules, with the failure that taught me each line
 - [ ] `workflows/multi-file-refactor.md` — a real session on TechCoach AI, start to finish: prompts, the wrong first plan, the correction, the final diff
 - [ ] `workflows/unfamiliar-codebase.md` — using the agent to map a codebase I've never seen
-- [ ] `teaching/onboarding-exercise.md` — the hands-on exercise I use to ramp engineers on Claude Code
+- [x] `teaching/onboarding-exercise.md` — the hands-on exercise I use to ramp engineers on Claude Code
 
 ---
 

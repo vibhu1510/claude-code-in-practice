@@ -1,0 +1,60 @@
+# CLAUDE.md — annotated example
+
+> This is a sanitized, annotated version of the conventions file I keep at the
+> root of my projects (shown here in the shape I use for TechCoach AI).
+> The annotations (blockquotes) explain why each section earns its place —
+> every line exists because the agent got something wrong without it.
+
+## Project
+
+TechCoach AI — agentic learning platform. Next.js/TypeScript frontend,
+API routes calling the Anthropic API, retrieval over Pinecone, deployed on
+AWS ECS/Fargate.
+
+> One paragraph of orientation. Without it, the agent guesses the stack from
+> whatever file it opened first and plans accordingly.
+
+## Commands
+
+- Install: `npm install`
+- Dev server: `npm run dev`
+- Tests: `npm test` (run before proposing any commit)
+- Typecheck: `npm run typecheck`
+- Lint: `npm run lint`
+
+> The agent will invent plausible-looking commands if you don't pin them.
+> "Run tests before proposing a commit" turned flaky suggestions into a habit.
+
+## Architecture map
+
+- `app/` — Next.js routes and pages. UI only; no business logic here.
+- `lib/retrieval/` — RAG pipeline: chunking, embedding, Pinecone queries.
+- `lib/llm/` — Anthropic API calls, prompt templates, response parsing.
+- `lib/db/` — persistence. All schema changes go through migrations.
+- `infra/` — ECS/Fargate deployment config.
+
+> A five-line map prevents the most expensive failure I hit early:
+> confident refactors that moved logic to the wrong layer.
+
+## Rules
+
+1. **Never edit `infra/` without being explicitly asked.** Deployment config
+   changes have burned me twice via "helpful" cleanup.
+2. **No new dependencies without asking.** Propose the package and why first.
+3. **All Anthropic API calls go through `lib/llm/client.ts`.** No inline
+   fetch calls to the API anywhere else.
+4. **Retrieval changes require a before/after on the eval set** in
+   `lib/retrieval/evals/` — "it looks more relevant" is not evidence.
+5. **Prefer editing existing files over creating new ones.** New-file sprawl
+   is the agent's default; this line cut it dramatically.
+
+> Rules are failure-derived, not aspirational. If a rule has never been
+> violated, it probably doesn't need to be here.
+
+## Style
+
+- TypeScript strict; no `any` without a comment justifying it.
+- Async/await over promise chains.
+- Errors: throw typed errors from `lib/errors.ts`; no silent catches.
+
+> Keep style short. Long style sections get ignored; linters enforce better.
